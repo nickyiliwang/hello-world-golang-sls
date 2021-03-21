@@ -1,0 +1,18 @@
+service: example-service
+
+plugins:
+  - serverless-go-plugin
+
+provider:
+  name: aws
+  runtime: go1.x
+  profile: nickyiliwang
+
+functions:
+  hello:
+    handler: ./functions/example/main.go
+    events:
+      - http:
+          method: GET
+          path: /
+          cors: true
